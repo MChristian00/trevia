@@ -77,7 +77,6 @@ class Question1 {
     public Question1() {
         // Assign question to appropriate category
         rand_ans = rando.nextInt(4);
-        System.out.println("Random ans:" + rand_ans);
         for(int i=0 ; i<categoriesByID.size(); i++){
             catNode = new Node1<>(categoriesByTitle.get(i));
             getQuestions(categoriesByID.get(i));
@@ -108,7 +107,6 @@ class Question1 {
             e.printStackTrace();
         }
         String r = res.body();
-        System.out.println(r);
         JSONParser parser = new JSONParser();
         JSONObject jObj = new JSONObject();
         try{
@@ -153,7 +151,6 @@ class Question1 {
             choices.add(choice.data);
         }
         correctAns = choices.get(0);
-        System.out.println( correctAns);
         return choices;
     }
     //Checks if the answer selected is the same as the correct answer stored in correctAns
@@ -251,9 +248,6 @@ public class Trivia1 {
     }
 // Checks if the choice selected by the player is correct, updates the score, and generates a new question
     public void displayResult(Graphics g) {
-        System.out.println("Correct ans:" + Question1.correctAns);
-        System.out.println("Selected ans:" + resAns);
-        System.out.println("choices answer: " + choices.get(resAns));
         if (q.checkAnswer(choices.get(resAns))) {
             System.out.println("choices answer: " + choices.get(resAns));
             QuestionManager.score += 100;
